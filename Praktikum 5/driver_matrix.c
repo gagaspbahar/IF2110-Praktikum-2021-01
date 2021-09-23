@@ -1,18 +1,27 @@
 #include <stdio.h>
 #include "matrix.h"
 #include "matrix.c"
+#include "matrixop.c"
 
 int main() {
     /* KAMUS */
     int m, n;
     Matrix m1, m2, temp;
-
+    ElType max, min;
     /* ALGORITMA */
     scanf("%d %d", &m, &n);
     readMatrix(&m1, m, n);
     printf("\n");
-
-
+    
+    printf("row mean: %lf\n",rowMean(m1,0));
+    printf("col mean: %lf\n",colMean(m1,0));
+    rowExtremes(m1,0,&max,&min);
+    printf("row extremes: %d, %d\n",max, min);
+    colExtremes(m1,0,&max,&min);
+    printf("col extremes: %d, %d\n",max, min);
+    printf("1 in row: %d\n", countValOnRow(m1,0,1));
+    printf("1 in col: %d\n", countValOnCol(m1,0,1));
+    
     scanf("%d %d", &m, &n);
     readMatrix(&m2, m, n);
     printf("\n");
