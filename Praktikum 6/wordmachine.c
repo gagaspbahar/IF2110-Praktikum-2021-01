@@ -1,7 +1,14 @@
+// Nama: Gagas Praharsa Bahar
+// NIM: 13520016
+// Word Machine
+
 #include "boolean.h"
 #include "charmachine.h"
 #include "wordmachine.h"
 #include <stdio.h>
+
+boolean endWord;
+Word currentWord;
 
 void ignoreBlank()
 /* Mengabaikan satu atau beberapa BLANK
@@ -41,6 +48,7 @@ void advWord()
     }
     else{
         copyWord();
+        ignoreBlank();
     }
 }
 void copyWord()
@@ -52,10 +60,17 @@ void copyWord()
           Jika panjang kata melebihi CAPACITY, maka sisa kata terpotong */
 {
     int i = 0;
-    while(currentChar != MARK || currentChar != BLANK){
+    while(currentChar != MARK && currentChar != BLANK){
         currentWord.contents[i] = currentChar;
         adv();
         i++;
     }
-    currentWord.length = i;
+    if (i > CAPACITY){
+        currentWord.length = CAPACITY;
+    }
+    else{
+        currentWord.length = i;
+    }
+    
+    
 }
