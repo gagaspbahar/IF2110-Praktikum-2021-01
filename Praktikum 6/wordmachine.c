@@ -71,6 +71,4 @@ void copyWord()
     else{
         currentWord.length = i;
     }
-    
-    
 }
