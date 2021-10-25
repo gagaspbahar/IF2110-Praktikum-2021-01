@@ -381,7 +381,7 @@ void shrinkList(ListDin *l, int num)
    CreateListDin(&temp, CAPACITY(*l));
    copyList(*l, &temp);
    int tempNeff = NEFF(*l);
-   dealocate(l);
+   // dealocate(l);
    CreateListDin(l, CAPACITY(temp) - num);
    NEFF(*l) = tempNeff;
    if(CAPACITY(temp) - num < NEFF(*l)){
