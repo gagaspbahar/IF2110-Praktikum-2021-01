@@ -304,7 +304,7 @@ Address searchPrec(List L, ElType X)
         prev = p;
         p = p->next;
     }
-    if(p->next == NULL){
+    if(p == NULL){
         return NULL;
     }
     else{
@@ -315,7 +315,7 @@ Address searchPrec(List L, ElType X)
 
 /*** Prekondisi untuk Max/Min/rata-rata : List tidak kosong ***/
 // ElType max(List l)
-ElType mx(List l)
+ElType max(List l)
 {
     int mx;
     Address p = l;
@@ -333,7 +333,7 @@ ElType mx(List l)
 Address adrMax(List l)
 /* Mengirimkan address P, dengan info(P) yang bernilai maksimum */
 {
-    int mxs = mx(l);
+    int mxs = max(l);
     Address p = l;
     while(p != NULL && p->info != mxs){
         p = p->next;
@@ -341,7 +341,7 @@ Address adrMax(List l)
     return p;
 }
 // ElType min(List l);
-ElType mn(List l)
+ElType min(List l)
 {
     int mn;
     Address p = l;
@@ -352,14 +352,13 @@ ElType mn(List l)
         }
         p = p->next;
     }
-    printf("msk\n");
     return mn;
 }
 /* Mengirimkan nilai info(P) yang minimum */
 Address adrMin(List l)
 /* Mengirimkan address P, dengan info(P) yang bernilai minimum */
 {
-    int mns = mn(l);
+    int mns = min(l);
     Address p = l;
     while(p != NULL && p->info != mns){
         p = p->next;
