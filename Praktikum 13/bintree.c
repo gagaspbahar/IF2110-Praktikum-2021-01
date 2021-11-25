@@ -180,6 +180,16 @@ void printPostorder(BinTree p)
 }
 
 
+void recursivePrintTree(BinTree p, int h, int dep){
+    if(!isTreeEmpty(p)){
+        for(int i = 0; i < h*dep; i++){
+            printf(" ");
+        }
+        printf("%d\n", p->info);
+        recursivePrintTree(p->left, h, dep+1);
+        recursivePrintTree(p->right, h, dep+1);
+    }
+}
 void printTree(BinTree p, int h)
 /* I.S. p terdefinisi, h adalah jarak indentasi (spasi) */
 /* F.S. Semua simpul p sudah ditulis dengan indentasi (spasi) */
@@ -201,15 +211,4 @@ Note: Anda boleh membuat fungsi tambahan untuk membuat implementasi fungsi ini j
 */
 {
     recursivePrintTree(p,h,0);
-}
-
-void recursivePrintTree(BinTree p, int h, int dep){
-    if(!isTreeEmpty(p)){
-        for(int i = 0; i < h*dep; i++){
-            printf(" ");
-        }
-        printf("%d\n", p->info);
-        recursivePrintTree(p->left, h, dep+1);
-        recursivePrintTree(p->right, h, dep+1);
-    }
 }
